@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La libertad negativa sí es la verdadera libertad — Praxis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #262624;
+  --bg-elev: #2e2e2c;
+  --bg-card: #1f1f1e;
+  --ink: #e8e4dc;
+  --ink-soft: #b8b3a8;
+  --ink-mute: #7a7670;
+  --rule: #3a3a37;
+  --orange: #FF8C1A;
+  --green: #7fb069;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  font-size: 17px;
+  padding: 60px 24px 120px;
+  min-height: 100vh;
+}
+
+.container { max-width: 760px; margin: 0 auto; }
+
+/* ============ HEADER ============ */
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 32px;
+  height: 1px;
+  background: var(--orange);
+}
+
+h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: clamp(38px, 6vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+  color: var(--ink);
+}
+
+h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--orange);
+}
+
+.meta-bar {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  padding: 16px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 8px;
+}
+
+.meta-bar span strong {
+  color: var(--ink-soft);
+  font-weight: 500;
+  margin-left: 6px;
+}
+
+.orange-rule {
+  height: 2px;
+  background: var(--orange);
+  width: 60px;
+  margin: 56px 0 48px;
+}
+
+/* ============ THESIS BOX ============ */
+.thesis {
+  background: var(--bg-card);
+  border-left: 3px solid var(--orange);
+  padding: 36px 40px;
+  margin-bottom: 64px;
+  position: relative;
+}
+
+.thesis::before {
+  content: "“";
+  position: absolute;
+  top: -10px;
+  left: 24px;
+  font-family: 'Fraunces', serif;
+  font-size: 96px;
+  line-height: 1;
+  color: var(--orange);
+  opacity: 0.4;
+}
+
+.thesis-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 16px;
+}
+
+.thesis-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.3;
+  margin-bottom: 20px;
+  color: var(--ink);
+  font-style: italic;
+}
+
+.thesis-body {
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.thesis-body strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* ============ SECTION HEADER ============ */
+.section-header { margin-bottom: 48px; }
+
+.section-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 16px;
+}
+
+.section-eyebrow.alt { color: var(--orange); }
+
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 38px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--green);
+}
+
+.section-title em.alt { color: var(--orange); }
+
+/* ============ ARGUMENT CARDS ============ */
+.arguments {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 80px;
+}
+
+.argument {
+  background: var(--bg-elev);
+  padding: 40px 44px;
+  position: relative;
+  border: 1px solid var(--rule);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.argument:hover {
+  border-color: var(--orange);
+  transform: translateX(4px);
+}
+
+.argument.green-accent:hover { border-color: var(--green); }
+
+.argument-number {
+  position: absolute;
+  top: 32px;
+  right: 36px;
+  font-family: 'Fraunces', serif;
+  font-size: 56px;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--orange);
+  opacity: 0.25;
+  letter-spacing: -0.04em;
+}
+
+.argument.green-accent .argument-number { color: var(--green); }
+
+.argument-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: var(--ink);
+  max-width: 85%;
+  letter-spacing: -0.01em;
+}
+
+.argument-body {
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.argument-body strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.argument-body em {
+  color: var(--green);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.argument.green-accent .argument-body em { color: var(--orange); }
+
+/* ============ EXAMPLES (in-card editorial) ============ */
+.examples {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+}
+
+.examples-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 18px;
+}
+
+.example {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 16px;
+  align-items: flex-start;
+}
+
+.example:last-child {
+  margin-bottom: 0;
+}
+
+.example-marker {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--orange);
+  line-height: 1.4;
+  flex-shrink: 0;
+  min-width: 28px;
+}
+
+.example-text {
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.example-text strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.example-text em {
+  color: var(--orange);
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* ============ COUNTERATTACK DIVIDER ============ */
+.counterattack-divider {
+  margin: 96px 0 64px;
+  text-align: center;
+  position: relative;
+}
+
+.counterattack-divider::before,
+.counterattack-divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 30%;
+  height: 1px;
+  background: var(--rule);
+}
+
+.counterattack-divider::before { left: 0; }
+.counterattack-divider::after { right: 0; }
+
+.counterattack-divider span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--orange);
+  background: var(--bg);
+  padding: 0 24px;
+}
+
+/* ============ DIAGRAM FRAME ============ */
+.diagram-frame {
+  background: var(--bg-elev);
+  border: 1px solid var(--rule);
+  padding: 32px 28px 24px;
+  margin-bottom: 56px;
+}
+
+.diagram-caption {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-top: 20px;
+  text-align: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+}
+
+/* ============ SYNTHESIS / CIERRE ============ */
+.synthesis {
+  position: relative;
+  padding: 4px;
+  background: linear-gradient(135deg, var(--orange) 0%, var(--green) 100%);
+  margin-top: 24px;
+}
+
+.synthesis-inner {
+  background: var(--bg);
+  padding: 48px 44px;
+}
+
+.synthesis-label {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--orange);
+  padding: 6px 14px;
+  margin-bottom: 28px;
+  font-weight: 500;
+}
+
+.synthesis-text {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 26px;
+  line-height: 1.4;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+
+.synthesis-text strong {
+  font-weight: 500;
+  color: var(--orange);
+  font-style: italic;
+}
+
+.synthesis-text em {
+  font-style: italic;
+  color: var(--green);
+  font-weight: 400;
+}
+
+/* ============ FOOTER ============ */
+footer {
+  margin-top: 100px;
+  padding-top: 32px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+footer .praxis-mark {
+  color: var(--orange);
+  font-weight: 500;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 640px) {
+  body { padding: 40px 18px 80px; font-size: 16px; }
+  .thesis, .argument, .synthesis-inner { padding: 28px 24px; }
+  .argument-number { font-size: 40px; top: 24px; right: 24px; }
+  .argument-title { font-size: 22px; max-width: 75%; }
+  .synthesis-text { font-size: 20px; }
+  .section-title { font-size: 30px; }
+  .diagram-frame { padding: 20px 12px 16px; }
+  footer { flex-direction: column; gap: 12px; align-items: flex-start; }
+  .counterattack-divider::before,
+  .counterattack-divider::after { width: 18%; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="eyebrow">Praxis · Refutación N.º 01</div>
+
+  <h1>La libertad negativa <em>sí</em> es la verdadera libertad.</h1>
+
+  <div class="meta-bar">
+    <span>Materia <strong>Filosofía Política</strong></span>
+    <span>Marco <strong>Escuela Austriaca</strong></span>
+    <span>Adversario <strong>Materialismo Político</strong></span>
+  </div>
+
+  <div class="orange-rule"></div>
+
+  <div class="thesis">
+    <div class="thesis-label">Tesis a refutar</div>
+    <div class="thesis-title">"La libertad negativa no es verdadera libertad."</div>
+    <div class="thesis-body">
+      Ser libre no es que nadie lo coaccione, sino <strong>poder hacer cosas</strong>. Si usted no tiene comida, salud o educación, su libertad es papel mojado. Por eso —dicen— el Estado debe garantizar esos "objetivos vitales", aunque para ello tenga que coaccionar mediante impuestos, redistribución y regulación.
+    </div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-eyebrow">La refutación</div>
+    <h2 class="section-title">Cómo se rompe <em>desde el austrismo</em></h2>
+  </div>
+
+  <div class="arguments">
+
+    <div class="argument">
+      <div class="argument-number">01</div>
+      <h3 class="argument-title">Confunden libertad con poder.</h3>
+      <p class="argument-body">
+        <strong>Libertad</strong> es que nadie lo obligue. <strong>Poder</strong> es tener medios. No son lo mismo. Si toda carencia fuera falta de libertad, <em>la palabra ya no significa nada</em> —y todos nuestros antepasados habrían sido esclavos sin saberlo—.
+      </p>
+
+      <div class="examples">
+        <div class="examples-label">Tres ejemplos históricos</div>
+
+        <div class="example">
+          <div class="example-marker">i.</div>
+          <div class="example-text">
+            Antes de que el hombre dominara <strong>el fuego</strong>, la gente moría de frío y comía cruda. ¿Eran <em>menos libres</em>? No. Eran humanos en una época donde el calor no existía como recurso. La naturaleza no es un tirano: es una circunstancia.
+          </div>
+        </div>
+
+        <div class="example">
+          <div class="example-marker">ii.</div>
+          <div class="example-text">
+            Antes de <strong>los hermanos Wright</strong>, nadie volaba. Eran libres igual. Volar era un <em>deseo, no un derecho</em>.
+          </div>
+        </div>
+
+        <div class="example">
+          <div class="example-marker">iii.</div>
+          <div class="example-text">
+            Antes de <strong>la penicilina</strong>, una infección menor mataba. ¿Los enfermos del siglo XVIII eran "menos libres" por no tener antibióticos? No. Estaban <em>limitados por la realidad</em>, no coaccionados por otro hombre.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="argument">
+      <div class="argument-number">02</div>
+      <h3 class="argument-title">Necesitar algo no le da derecho sobre otros.</h3>
+      <p class="argument-body">
+        Que yo necesite un riñón <strong>no me autoriza a tomar el suyo</strong>. La necesidad describe mi situación; no crea, por sí sola, una obligación coactiva sobre terceros.
+      </p>
+    </div>
+
+    <div class="argument">
+      <div class="argument-number">03</div>
+      <h3 class="argument-title">Los "objetivos vitales" son subjetivos.</h3>
+      <p class="argument-body">
+        Cada quien jerarquiza sus fines distinto. Cuando un político dice "objetivos vitales", está diciendo <em>los fines que yo creo que usted debería tener</em>. Es <strong>paternalismo disfrazado de ontología</strong>.
+      </p>
+    </div>
+
+    <div class="argument">
+      <div class="argument-number">04</div>
+      <h3 class="argument-title">La libertad de uno cuesta la libertad de otro.</h3>
+      <p class="argument-body">
+        Como los recursos son escasos, asegurar la "libertad real" de A exige obligar a B a producir o pagar. La libertad positiva <strong>no amplía la libertad: la traslada por la fuerza</strong>.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="counterattack-divider"><span>El contraataque</span></div>
+
+  <div class="thesis">
+    <div class="thesis-label">La objeción del hambriento</div>
+    <div class="thesis-title">"Dígale eso al que se está muriendo de hambre."</div>
+    <div class="thesis-body">
+      Muy bonita su teoría —dicen— pero <strong>dígale al que se está muriendo de hambre</strong> que no tiene derecho a exigir comida porque eso violaría la libertad negativa de otro. Su libertad es un lujo de gente con la nevera llena.
+    </div>
+  </div>
+
+  <div class="diagram-frame">
+<svg viewBox="0 0 760 480" xmlns="http://www.w3.org/2000/svg" role="img" style="width:100%;height:auto;display:block;">
+<title>Paralelo lógico: el hambriento y el riñón</title>
+<desc>Dos casos con la misma estructura: necesidad de A, recurso de B, y la conclusión coactiva.</desc>
+<defs>
+<style>
+.lbl-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; fill: #FF8C1A; font-weight: 500; }
+.lbl-title { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 600; fill: #e8e4dc; }
+.lbl-body { font-family: 'Inter', sans-serif; font-size: 13px; fill: #b8b3a8; font-weight: 400; }
+.lbl-step { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; fill: #7a7670; font-weight: 500; }
+.lbl-emph { font-family: 'Fraunces', serif; font-size: 14px; font-style: italic; fill: #e8e4dc; font-weight: 400; }
+.lbl-verdict-yes { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; fill: #FF8C1A; font-weight: 500; }
+.lbl-verdict-no { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; fill: #7fb069; font-weight: 500; }
+.lbl-divider { font-family: 'Fraunces', serif; font-size: 11px; font-style: italic; fill: #7a7670; }
+</style>
+<marker id="arr-mute" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+<path d="M2 1L8 5L2 9" fill="none" stroke="#5a5751" stroke-width="1.4" stroke-linecap="round"/>
+</marker>
+</defs>
+<text x="380" y="32" text-anchor="middle" class="lbl-eyebrow">Misma estructura · Distinta temperatura emocional</text>
+<line x1="320" y1="48" x2="440" y2="48" stroke="#FF8C1A" stroke-width="1"/>
+<text x="190" y="92" text-anchor="middle" class="lbl-title">Caso A · Hambre</text>
+<text x="570" y="92" text-anchor="middle" class="lbl-title">Caso B · Riñón</text>
+<line x1="380" y1="78" x2="380" y2="430" stroke="#3a3a37" stroke-width="0.5" stroke-dasharray="3 4"/>
+<text x="380" y="260" text-anchor="middle" class="lbl-divider" transform="rotate(-90 380 260)">paralelo lógico</text>
+<text x="60" y="135" class="lbl-step">01 · Necesidad</text>
+<text x="440" y="135" class="lbl-step">01 · Necesidad</text>
+<g transform="translate(140, 150)">
+<circle cx="20" cy="14" r="9" fill="none" stroke="#b8b3a8" stroke-width="1.2"/>
+<path d="M 20 23 L 20 50 M 8 38 L 32 38 M 12 60 L 20 50 L 28 60" fill="none" stroke="#b8b3a8" stroke-width="1.2" stroke-linecap="round"/>
+<circle cx="20" cy="32" r="5" fill="none" stroke="#FF8C1A" stroke-width="0.8" stroke-dasharray="1.5 1.5"/>
+</g>
+<text x="190" y="235" text-anchor="middle" class="lbl-emph">A necesita comida</text>
+<text x="190" y="252" text-anchor="middle" class="lbl-body">para no morir</text>
+<g transform="translate(520, 150)">
+<circle cx="20" cy="14" r="9" fill="none" stroke="#b8b3a8" stroke-width="1.2"/>
+<path d="M 20 23 L 20 50 M 8 38 L 32 38 M 12 60 L 20 50 L 28 60" fill="none" stroke="#b8b3a8" stroke-width="1.2" stroke-linecap="round"/>
+<path d="M 33 30 Q 39 28 39 34 Q 39 40 33 38 Q 30 36 31 33 Z" fill="none" stroke="#FF8C1A" stroke-width="0.8"/>
+<line x1="31" y1="30" x2="39" y2="38" stroke="#FF8C1A" stroke-width="0.8"/>
+</g>
+<text x="570" y="235" text-anchor="middle" class="lbl-emph">A necesita un riñón</text>
+<text x="570" y="252" text-anchor="middle" class="lbl-body">para no morir</text>
+<text x="60" y="285" class="lbl-step">02 · Recurso de un tercero</text>
+<text x="440" y="285" class="lbl-step">02 · Recurso de un tercero</text>
+<g transform="translate(140, 300)">
+<circle cx="20" cy="14" r="9" fill="none" stroke="#7fb069" stroke-width="1.2"/>
+<path d="M 20 23 L 20 50 M 8 38 L 32 38 M 12 60 L 20 50 L 28 60" fill="none" stroke="#7fb069" stroke-width="1.2" stroke-linecap="round"/>
+<rect x="34" y="33" width="12" height="8" rx="3" fill="none" stroke="#7fb069" stroke-width="1"/>
+<line x1="36" y1="36" x2="44" y2="36" stroke="#7fb069" stroke-width="0.6"/>
+</g>
+<text x="190" y="380" text-anchor="middle" class="lbl-emph">B tiene comida</text>
+<text x="190" y="397" text-anchor="middle" class="lbl-body">producto de su trabajo</text>
+<g transform="translate(520, 300)">
+<circle cx="20" cy="14" r="9" fill="none" stroke="#7fb069" stroke-width="1.2"/>
+<path d="M 20 23 L 20 50 M 8 38 L 32 38 M 12 60 L 20 50 L 28 60" fill="none" stroke="#7fb069" stroke-width="1.2" stroke-linecap="round"/>
+<path d="M 33 30 Q 39 28 39 34 Q 39 40 33 38 Q 30 36 31 33 Z" fill="#7fb069" stroke="#7fb069" stroke-width="0.8" opacity="0.4"/>
+</g>
+<text x="570" y="380" text-anchor="middle" class="lbl-emph">B tiene su riñón</text>
+<text x="570" y="397" text-anchor="middle" class="lbl-body">parte de su cuerpo</text>
+<path d="M 190 265 L 190 295" stroke="#5a5751" stroke-width="1" fill="none" marker-end="url(#arr-mute)"/>
+<path d="M 570 265 L 570 295" stroke="#5a5751" stroke-width="1" fill="none" marker-end="url(#arr-mute)"/>
+<line x1="40" y1="425" x2="720" y2="425" stroke="#3a3a37" stroke-width="0.5"/>
+<text x="60" y="450" class="lbl-step">¿Justifica coacción?</text>
+<g transform="translate(140, 440)">
+<rect x="0" y="0" width="100" height="26" rx="2" fill="none" stroke="#FF8C1A" stroke-width="1"/>
+<text x="50" y="17" text-anchor="middle" class="lbl-verdict-yes">Dicen que sí</text>
+</g>
+<g transform="translate(520, 440)">
+<rect x="0" y="0" width="100" height="26" rx="2" fill="none" stroke="#7fb069" stroke-width="1"/>
+<text x="50" y="17" text-anchor="middle" class="lbl-verdict-no">Nadie diría que sí</text>
+</g>
+<text x="380" y="458" text-anchor="middle" class="lbl-emph">¿Por qué la lógica cambia?</text>
+<text x="380" y="473" text-anchor="middle" class="lbl-body">No cambia. Solo sube la temperatura emocional.</text>
+</svg>
+    <p class="diagram-caption">Fig. 01 · Estructura idéntica · Intuición invertida</p>
+  </div>
+
+  <div class="section-header">
+    <div class="section-eyebrow alt">La respuesta</div>
+    <h2 class="section-title">Cuatro movimientos para <em class="alt">desactivarla</em></h2>
+  </div>
+
+  <div class="arguments">
+
+    <div class="argument green-accent">
+      <div class="argument-number">01</div>
+      <h3 class="argument-title">Aceptar el peso moral, rechazar el salto lógico.</h3>
+      <p class="argument-body">
+        Sí, es trágico que alguien pase hambre. <strong>No, esa tragedia no convierte mágicamente la coacción sobre terceros en justicia</strong>. Si necesitar no genera derecho coactivo cuando se trata de un riñón, tampoco lo genera cuando se trata de comida. La intensidad emocional del caso no es un argumento, es un <em>chantaje retórico</em>.
+      </p>
+    </div>
+
+    <div class="argument green-accent">
+      <div class="argument-number">02</div>
+      <h3 class="argument-title">Caridad y solidaridad no son coacción.</h3>
+      <p class="argument-body">
+        El austrismo no dice que el hambriento deba morirse. Dice que <strong>ayudarlo voluntariamente</strong> —familia, comunidad, iglesia, mutuales, filantropía, mercado— es moralmente distinto a <strong>obligar a punta de pistola</strong> a un tercero a hacerlo. Ambos resuelven el hambre; solo uno respeta la dignidad de todos. Confundir caridad con redistribución coactiva es <em>la trampa central</em>.
+      </p>
+    </div>
+
+    <div class="argument green-accent">
+      <div class="argument-number">03</div>
+      <h3 class="argument-title">El falso dilema: "o coacción estatal o muerte".</h3>
+      <p class="argument-body">
+        El argumento presenta dos opciones: el Estado redistribuye o el pobre muere. Es falso empíricamente. Las sociedades con mayor libertad económica son las que <strong>menos hambre histórica</strong> han producido. La pregunta correcta no es "¿coacción o hambre?" sino <em>"¿qué sistema produce más comida para más gente?"</em>. La respuesta histórica es inequívoca: mercados libres.
+      </p>
+    </div>
+
+    <div class="argument green-accent">
+      <div class="argument-number">04</div>
+      <h3 class="argument-title">La pregunta inversa que nunca se hacen.</h3>
+      <p class="argument-body">
+        Si el hambre justifica coaccionar a terceros, <strong>¿hasta dónde llega?</strong> ¿Puedo robarle a mi vecino si tengo hambre? ¿Puede un país invadir a otro si su pueblo pasa hambre? El principio "necesidad extrema → derecho coactivo" no tiene techo lógico —disuelve toda propiedad y toda paz—. Quien lo defiende no protege al hambriento; <em>construye la justificación universal</em> para que el más fuerte tome del más débil cuando declare "emergencia".
+      </p>
+    </div>
+
+  </div>
+
+  <div class="synthesis">
+    <div class="synthesis-inner">
+      <div class="synthesis-label">El cierre</div>
+      <p class="synthesis-text">
+        Confunden <strong>condiciones para actuar</strong> con <strong>libertad para actuar</strong>, y usan esa confusión para justificar lo único que la libertad prohíbe: usar a unos hombres como medios para los fines de otros. <em>Los principios que solo aplican en condiciones cómodas no son principios; son preferencias estéticas.</em>
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <span class="praxis-mark">Praxis · Refutario · N.º 01</span>
+    <span>Bogotá · MMXXVI</span>
+  </footer>
+
+</div>
+</body>
+</html>
