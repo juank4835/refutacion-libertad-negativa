@@ -9,15 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #262624;
-  --bg-elev: #2e2e2c;
-  --bg-card: #1f1f1e;
+  --bg: #000000;
+  --bg-elev: #000000;
+  --bg-card: #000000;
   --ink: #e8e4dc;
   --ink-soft: #b8b3a8;
   --ink-mute: #7a7670;
   --rule: #3a3a37;
   --orange: #FF8C1A;
-  --green: #7fb069;
+  --green: #FF8C1A;
+  --red: #d94c3d;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -99,6 +100,157 @@ h1 em {
   margin: 56px 0 48px;
 }
 
+/* ============ DEFINITIONS BLOCK ============ */
+.definitions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 64px;
+}
+
+.definition {
+  border-top: 2px solid var(--rule);
+  padding: 20px 24px 24px;
+  position: relative;
+}
+
+.definition.positive {
+  border-top-color: var(--orange);
+}
+
+.definition.negative-claim {
+  border-top-color: var(--red);
+}
+
+.definition-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.definition.positive .definition-eyebrow {
+  color: var(--orange);
+}
+
+.definition.negative-claim .definition-eyebrow {
+  color: var(--red);
+}
+
+.definition-tag {
+  font-family: 'Fraunces', serif;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--ink-mute);
+  margin-bottom: 14px;
+  display: block;
+}
+
+.definition-text {
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.definition-text strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .definitions {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .definition {
+    padding: 16px 20px 20px;
+  }
+}
+
+/* ============ GLOSSARY ============ */
+.glossary {
+  border: 1px solid var(--rule);
+  padding: 28px 32px;
+  margin-bottom: 48px;
+}
+
+.glossary.final {
+  margin-top: 56px;
+  margin-bottom: 0;
+}
+
+.glossary-header {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 4px;
+}
+
+.glossary-subtitle {
+  font-family: 'Fraunces', serif;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--ink-mute);
+  margin-bottom: 22px;
+  display: block;
+}
+
+.glossary-row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 24px;
+  padding: 14px 0;
+  border-top: 1px solid var(--rule);
+  align-items: baseline;
+}
+
+.glossary-row:first-of-type {
+  border-top: none;
+  padding-top: 4px;
+}
+
+.glossary-term {
+  font-family: 'Fraunces', serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.35;
+}
+
+.glossary-term.term-red {
+  color: var(--red);
+}
+
+.glossary-term.term-orange {
+  color: var(--orange);
+}
+
+.glossary-def {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .glossary {
+    padding: 22px 20px;
+  }
+  .glossary-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 12px 0;
+  }
+  .glossary-term {
+    font-size: 15px;
+  }
+}
+
 /* ============ THESIS BOX ============ */
 .thesis {
   background: var(--bg-card);
@@ -118,6 +270,18 @@ h1 em {
   line-height: 1;
   color: var(--orange);
   opacity: 0.4;
+}
+
+.thesis.green {
+  border-left-color: var(--green);
+}
+
+.thesis.green::before {
+  color: var(--green);
+}
+
+.thesis.green .thesis-label {
+  color: var(--green);
 }
 
 .thesis-label {
@@ -148,6 +312,11 @@ h1 em {
 .thesis-body strong {
   color: var(--ink);
   font-weight: 500;
+}
+
+.thesis-body .red {
+  color: var(--red);
+  font-weight: 600;
 }
 
 /* ============ SECTION HEADER ============ */
@@ -240,6 +409,303 @@ h1 em {
   font-weight: 500;
 }
 
+.argument-body .red {
+  color: var(--red);
+  font-weight: 600;
+}
+
+.argument-body .green-tag {
+  color: var(--green);
+  font-weight: 600;
+}
+
+.argument-coda {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin-top: 14px;
+}
+
+/* ============ EXAMPLES UNIFIER ============ */
+.examples-unifier {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+}
+
+.examples-unifier-question {
+  font-family: 'Fraunces', serif;
+  font-size: 17px;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.examples-unifier-answer {
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.examples-unifier-answer strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.examples-unifier-answer em {
+  color: var(--orange);
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* ============ CARD 01 SPECIAL COMPONENTS ============ */
+
+/* VS Block: libertad ≠ medios materiales */
+.vs-block {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  gap: 0;
+  align-items: center;
+  margin: 32px 0 40px 0;
+}
+
+.vs-side {
+  padding: 22px 24px;
+  border-radius: 4px;
+}
+
+.vs-side.libertad {
+  background: rgba(255, 140, 26, 0.06);
+  border: 1px solid rgba(255, 140, 26, 0.4);
+}
+
+.vs-side.medios {
+  background: rgba(217, 76, 61, 0.06);
+  border: 1px solid rgba(217, 76, 61, 0.4);
+}
+
+.vs-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.vs-side.libertad .vs-eyebrow { color: var(--orange); }
+.vs-side.medios .vs-eyebrow { color: var(--red); }
+
+.vs-text {
+  font-family: 'Fraunces', serif;
+  font-size: 17px;
+  line-height: 1.35;
+  margin: 0;
+  font-weight: 500;
+}
+
+.vs-side.libertad .vs-text { color: var(--orange); }
+.vs-side.medios .vs-text { color: var(--red); }
+
+.vs-symbol {
+  text-align: center;
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  font-style: italic;
+  color: var(--ink-mute);
+}
+
+/* Section divider */
+.proof-section {
+  border-top: 1px solid var(--rule);
+  padding-top: 32px;
+  margin-top: 8px;
+}
+
+.proof-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 14px;
+}
+
+.proof-question {
+  font-family: 'Fraunces', serif;
+  font-size: 19px;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--ink);
+  margin: 0 0 24px 0;
+}
+
+.proof-question em {
+  color: var(--orange);
+  font-style: italic;
+}
+
+.proof-answer-intro {
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0 0 8px 0;
+}
+
+.proof-answer-intro strong { color: var(--ink); font-weight: 500; }
+
+/* Vertical Timeline */
+.timeline {
+  position: relative;
+  padding: 8px 0;
+  margin: 28px 0 32px 0;
+}
+
+.timeline-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 24px;
+  padding-left: 24px;
+  padding-bottom: 28px;
+}
+
+.timeline-row:last-child { padding-bottom: 0; }
+
+.timeline-line {
+  position: absolute;
+  left: 5px;
+  top: 6px;
+  bottom: -8px;
+  width: 1px;
+  background: var(--orange);
+}
+
+.timeline-row.continued .timeline-line {
+  top: -20px;
+}
+
+.timeline-row:last-child .timeline-line {
+  bottom: auto;
+  height: 26px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--orange);
+}
+
+.timeline-dot.future {
+  background: var(--orange);
+}
+
+.timeline-when-number {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.timeline-when-number.future {
+  color: var(--orange);
+  font-style: italic;
+}
+
+.timeline-when-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-top: 4px;
+}
+
+.timeline-when-tag.future { color: var(--orange); }
+
+.timeline-text {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  margin: 4px 0 0 0;
+}
+
+.timeline-text.future {
+  color: var(--orange);
+  font-style: italic;
+}
+
+/* Trailing line for proof section */
+.proof-trail {
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 24px 0 0 0;
+}
+
+.proof-trail em {
+  color: var(--orange);
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* Conclusion Box */
+.card01-conclusion {
+  margin-top: 32px;
+  padding: 22px 24px;
+  background: rgba(255, 140, 26, 0.04);
+  border: 1px solid rgba(255, 140, 26, 0.25);
+  border-radius: 4px;
+}
+
+.card01-conclusion-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 10px;
+}
+
+.card01-conclusion-text {
+  font-family: 'Fraunces', serif;
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0;
+}
+
+.card01-conclusion-text em {
+  color: var(--orange);
+  font-weight: 500;
+  font-style: italic;
+}
+
+@media (max-width: 640px) {
+  .vs-block {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .vs-symbol {
+    padding: 4px 0;
+  }
+  .timeline-row {
+    grid-template-columns: 100px 1fr;
+    gap: 16px;
+  }
+  .timeline-when-number {
+    font-size: 18px;
+  }
+}
+
 .argument-body em {
   color: var(--green);
   font-style: italic;
@@ -310,6 +776,10 @@ h1 em {
   position: relative;
 }
 
+.counterattack-divider.sub {
+  margin: 88px 0 56px;
+}
+
 .counterattack-divider::before,
 .counterattack-divider::after {
   content: "";
@@ -331,6 +801,11 @@ h1 em {
   color: var(--orange);
   background: var(--bg);
   padding: 0 24px;
+}
+
+.counterattack-divider.sub span {
+  color: var(--ink-mute);
+  font-size: 9px;
 }
 
 /* ============ DIAGRAM FRAME ============ */
@@ -450,11 +925,55 @@ footer .praxis-mark {
 
   <div class="orange-rule"></div>
 
+  <!-- GLOSARIO INICIAL -->
+  <div class="glossary">
+    <div class="glossary-header">Vocabulario clave</div>
+    <span class="glossary-subtitle">los términos antes de la pelea</span>
+    <div class="glossary-row">
+      <div class="glossary-term term-orange">Libertad negativa</div>
+      <div class="glossary-def">Que nadie lo coaccione.</div>
+    </div>
+    <div class="glossary-row">
+      <div class="glossary-term term-red">Libertad positiva</div>
+      <div class="glossary-def">Tener medios materiales (comida, salud, dinero, educación).</div>
+    </div>
+    <div class="glossary-row">
+      <div class="glossary-term term-red">Condiciones para actuar</div>
+      <div class="glossary-def">Sinónimo de libertad positiva. Los medios materiales.</div>
+    </div>
+    <div class="glossary-row">
+      <div class="glossary-term term-orange">Libertad para actuar</div>
+      <div class="glossary-def">Sinónimo de libertad negativa. Que nadie lo coaccione.</div>
+    </div>
+    <div class="glossary-row">
+      <div class="glossary-term">Coacción</div>
+      <div class="glossary-def">Obligar a alguien a hacer o no hacer algo bajo amenaza de fuerza —cárcel, multa, violencia—.</div>
+    </div>
+  </div>
+
+  <!-- DEFINICIONES PREVIAS -->
+  <div class="definitions">
+    <div class="definition positive">
+      <div class="definition-eyebrow">Libertad Negativa</div>
+      <span class="definition-tag">la que defendemos</span>
+      <p class="definition-text">
+        Estar libre de la <strong>coacción de otros</strong>. Que nadie lo obligue ni le impida actuar mediante fuerza o amenaza.
+      </p>
+    </div>
+    <div class="definition negative-claim">
+      <div class="definition-eyebrow">Libertad Positiva</div>
+      <span class="definition-tag">la que cuestionamos</span>
+      <p class="definition-text">
+        Tener los <strong>medios materiales</strong> para hacer lo que uno quiere. Que existan las condiciones —comida, salud, educación— que permitan ejercer la libertad.
+      </p>
+    </div>
+  </div>
+
   <div class="thesis">
     <div class="thesis-label">Tesis a refutar</div>
     <div class="thesis-title">"La libertad negativa no es verdadera libertad."</div>
     <div class="thesis-body">
-      Ser libre no es que nadie lo coaccione, sino <strong>poder hacer cosas</strong>. Si usted no tiene comida, salud o educación, su libertad es papel mojado. Por eso —dicen— el Estado debe garantizar esos "objetivos vitales", aunque para ello tenga que coaccionar mediante impuestos, redistribución y regulación.
+      Ser libre no es solo que nadie lo coaccione —dicen— sino <strong>tener los medios materiales para actuar</strong>. Si usted no tiene comida, salud o educación, <strong>no se puede ser libre sin esos medios materiales</strong>. Por eso el Estado debe garantizar esos "objetivos vitales", aunque para ello tenga que coaccionar mediante impuestos, redistribución y regulación.
     </div>
   </div>
 
@@ -467,34 +986,85 @@ footer .praxis-mark {
 
     <div class="argument">
       <div class="argument-number">01</div>
-      <h3 class="argument-title">Confunden libertad con poder.</h3>
-      <p class="argument-body">
-        <strong>Libertad</strong> es que nadie lo obligue. <strong>Poder</strong> es tener medios. No son lo mismo. Si toda carencia fuera falta de libertad, <em>la palabra ya no significa nada</em> —y todos nuestros antepasados habrían sido esclavos sin saberlo—.
-      </p>
+      <h3 class="argument-title">Confunden libertad con tener medios materiales.</h3>
 
-      <div class="examples">
-        <div class="examples-label">Tres ejemplos históricos</div>
+      <div class="vs-block">
+        <div class="vs-side libertad">
+          <div class="vs-eyebrow">Libertad</div>
+          <p class="vs-text">Que nadie lo obligue</p>
+        </div>
+        <div class="vs-symbol">≠</div>
+        <div class="vs-side medios">
+          <div class="vs-eyebrow">Medios materiales</div>
+          <p class="vs-text">Tener recursos para actuar</p>
+        </div>
+      </div>
 
-        <div class="example">
-          <div class="example-marker">i.</div>
-          <div class="example-text">
-            Antes de que el hombre dominara <strong>el fuego</strong>, la gente moría de frío y comía cruda. ¿Eran <em>menos libres</em>? No. Eran humanos en una época donde el calor no existía como recurso. La naturaleza no es un tirano: es una circunstancia.
+      <div class="proof-section">
+        <div class="proof-eyebrow">La prueba histórica</div>
+
+        <p class="proof-question">
+          ¿El hombre primitivo era <em>menos libre</em> al morir por no tener cómo calentarse, cómo curar una infección? <strong style="color: var(--orange); font-style: normal;">No.</strong>
+        </p>
+
+        <p class="proof-answer-intro">
+          Le faltaban <strong>medios materiales —no libertad—</strong>. Se moría de frío por no tener fuego. Se moría de infecciones por no tener antibióticos.
+        </p>
+
+        <div class="timeline">
+
+          <div class="timeline-row">
+            <div class="timeline-line"></div>
+            <div class="timeline-dot"></div>
+            <div>
+              <div class="timeline-when-number">Hace 800 mil</div>
+              <div class="timeline-when-tag">años</div>
+            </div>
+            <p class="timeline-text">No se había descubierto el fuego. La gente moría de frío.</p>
           </div>
+
+          <div class="timeline-row continued">
+            <div class="timeline-line"></div>
+            <div class="timeline-dot"></div>
+            <div>
+              <div class="timeline-when-number">Hace 100</div>
+              <div class="timeline-when-tag">años</div>
+            </div>
+            <p class="timeline-text">No existían los antibióticos. La gente moría de infecciones.</p>
+          </div>
+
+          <div class="timeline-row continued">
+            <div class="timeline-line"></div>
+            <div class="timeline-dot"></div>
+            <div>
+              <div class="timeline-when-number">Hace 30</div>
+              <div class="timeline-when-tag">años</div>
+            </div>
+            <p class="timeline-text">El internet no existía en los hogares.</p>
+          </div>
+
+          <div class="timeline-row continued">
+            <div class="timeline-line"></div>
+            <div class="timeline-dot future"></div>
+            <div>
+              <div class="timeline-when-number future">Mañana</div>
+              <div class="timeline-when-tag future">futuro</div>
+            </div>
+            <p class="timeline-text future">Medios materiales que aún no se han inventado.</p>
+          </div>
+
         </div>
 
-        <div class="example">
-          <div class="example-marker">ii.</div>
-          <div class="example-text">
-            Antes de <strong>los hermanos Wright</strong>, nadie volaba. Eran libres igual. Volar era un <em>deseo, no un derecho</em>.
-          </div>
-        </div>
+        <p class="proof-trail">
+          Hoy todos se consideran "necesidades básicas" sin las cuales —dirán— <em>no se puede ser libre</em>.
+        </p>
+      </div>
 
-        <div class="example">
-          <div class="example-marker">iii.</div>
-          <div class="example-text">
-            Antes de <strong>la penicilina</strong>, una infección menor mataba. ¿Los enfermos del siglo XVIII eran "menos libres" por no tener antibióticos? No. Estaban <em>limitados por la realidad</em>, no coaccionados por otro hombre.
-          </div>
-        </div>
+      <div class="card01-conclusion">
+        <div class="card01-conclusion-label">Conclusión</div>
+        <p class="card01-conclusion-text">
+          Según esa lógica, toda la humanidad habría sido esclava hasta hoy. Y nosotros también, vistos desde el futuro: <em>esclavos de medios materiales que aún no se han inventado</em>.
+        </p>
       </div>
     </div>
 
@@ -530,7 +1100,7 @@ footer .praxis-mark {
     <div class="thesis-label">La objeción del hambriento</div>
     <div class="thesis-title">"Dígale eso al que se está muriendo de hambre."</div>
     <div class="thesis-body">
-      Muy bonita su teoría —dicen— pero <strong>dígale al que se está muriendo de hambre</strong> que no tiene derecho a exigir comida porque eso violaría la libertad negativa de otro. Su libertad es un lujo de gente con la nevera llena.
+      Muy bonita su teoría —dicen— pero <strong>dígale al que se está muriendo de hambre</strong> que no tiene derecho a los medios materiales para sobrevivir porque eso violaría la libertad negativa de otro. Su libertad es un lujo de gente con la nevera llena.
     </div>
   </div>
 
@@ -546,7 +1116,7 @@ footer .praxis-mark {
 .lbl-step { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; fill: #7a7670; font-weight: 500; }
 .lbl-emph { font-family: 'Fraunces', serif; font-size: 14px; font-style: italic; fill: #e8e4dc; font-weight: 400; }
 .lbl-verdict-yes { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; fill: #FF8C1A; font-weight: 500; }
-.lbl-verdict-no { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; fill: #7fb069; font-weight: 500; }
+.lbl-verdict-no { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; fill: #FF8C1A; font-weight: 500; }
 .lbl-divider { font-family: 'Fraunces', serif; font-size: 11px; font-style: italic; fill: #7a7670; }
 </style>
 <marker id="arr-mute" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
@@ -579,17 +1149,17 @@ footer .praxis-mark {
 <text x="60" y="285" class="lbl-step">02 · Recurso de un tercero</text>
 <text x="440" y="285" class="lbl-step">02 · Recurso de un tercero</text>
 <g transform="translate(140, 300)">
-<circle cx="20" cy="14" r="9" fill="none" stroke="#7fb069" stroke-width="1.2"/>
-<path d="M 20 23 L 20 50 M 8 38 L 32 38 M 12 60 L 20 50 L 28 60" fill="none" stroke="#7fb069" stroke-width="1.2" stroke-linecap="round"/>
-<rect x="34" y="33" width="12" height="8" rx="3" fill="none" stroke="#7fb069" stroke-width="1"/>
-<line x1="36" y1="36" x2="44" y2="36" stroke="#7fb069" stroke-width="0.6"/>
+<circle cx="20" cy="14" r="9" fill="none" stroke="#FF8C1A" stroke-width="1.2"/>
+<path d="M 20 23 L 20 50 M 8 38 L 32 38 M 12 60 L 20 50 L 28 60" fill="none" stroke="#FF8C1A" stroke-width="1.2" stroke-linecap="round"/>
+<rect x="34" y="33" width="12" height="8" rx="3" fill="none" stroke="#FF8C1A" stroke-width="1"/>
+<line x1="36" y1="36" x2="44" y2="36" stroke="#FF8C1A" stroke-width="0.6"/>
 </g>
 <text x="190" y="380" text-anchor="middle" class="lbl-emph">B tiene comida</text>
 <text x="190" y="397" text-anchor="middle" class="lbl-body">producto de su trabajo</text>
 <g transform="translate(520, 300)">
-<circle cx="20" cy="14" r="9" fill="none" stroke="#7fb069" stroke-width="1.2"/>
-<path d="M 20 23 L 20 50 M 8 38 L 32 38 M 12 60 L 20 50 L 28 60" fill="none" stroke="#7fb069" stroke-width="1.2" stroke-linecap="round"/>
-<path d="M 33 30 Q 39 28 39 34 Q 39 40 33 38 Q 30 36 31 33 Z" fill="#7fb069" stroke="#7fb069" stroke-width="0.8" opacity="0.4"/>
+<circle cx="20" cy="14" r="9" fill="none" stroke="#FF8C1A" stroke-width="1.2"/>
+<path d="M 20 23 L 20 50 M 8 38 L 32 38 M 12 60 L 20 50 L 28 60" fill="none" stroke="#FF8C1A" stroke-width="1.2" stroke-linecap="round"/>
+<path d="M 33 30 Q 39 28 39 34 Q 39 40 33 38 Q 30 36 31 33 Z" fill="#FF8C1A" stroke="#FF8C1A" stroke-width="0.8" opacity="0.4"/>
 </g>
 <text x="570" y="380" text-anchor="middle" class="lbl-emph">B tiene su riñón</text>
 <text x="570" y="397" text-anchor="middle" class="lbl-body">parte de su cuerpo</text>
@@ -602,7 +1172,7 @@ footer .praxis-mark {
 <text x="50" y="17" text-anchor="middle" class="lbl-verdict-yes">Dicen que sí</text>
 </g>
 <g transform="translate(520, 440)">
-<rect x="0" y="0" width="100" height="26" rx="2" fill="none" stroke="#7fb069" stroke-width="1"/>
+<rect x="0" y="0" width="100" height="26" rx="2" fill="none" stroke="#FF8C1A" stroke-width="1"/>
 <text x="50" y="17" text-anchor="middle" class="lbl-verdict-no">Nadie diría que sí</text>
 </g>
 <text x="380" y="458" text-anchor="middle" class="lbl-emph">¿Por qué la lógica cambia?</text>
@@ -612,8 +1182,8 @@ footer .praxis-mark {
   </div>
 
   <div class="section-header">
-    <div class="section-eyebrow alt">La respuesta</div>
-    <h2 class="section-title">Cuatro movimientos para <em class="alt">desactivarla</em></h2>
+    <div class="section-eyebrow alt">La respuesta · I</div>
+    <h2 class="section-title">Cuatro movimientos para <em class="alt">desactivar el hambre</em></h2>
   </div>
 
   <div class="arguments">
@@ -652,12 +1222,100 @@ footer .praxis-mark {
 
   </div>
 
+  <!-- ============ SEGUNDO CONTRAATAQUE: LA SALUD ============ -->
+  <div class="counterattack-divider sub"><span>Segunda objeción</span></div>
+
+  <div class="thesis">
+    <div class="thesis-label">La objeción de la salud</div>
+    <div class="thesis-title">"No me venga con que es subjetivo. Todos queremos salud."</div>
+    <div class="thesis-body">
+      Concedido que los fines son distintos —dirán— pero <strong>hay medios materiales que todo el mundo necesita</strong>: salud, comida, techo, educación. Eso ya no es subjetivo, es <em>obvio</em>. Y si es obvio, el Estado tiene piso para garantizarlo.
+    </div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-eyebrow alt">La respuesta · II</div>
+    <h2 class="section-title">Tres movimientos para <em class="alt">desactivar la salud</em></h2>
+  </div>
+
+  <div class="arguments">
+
+    <div class="argument green-accent">
+      <div class="argument-number">01</div>
+      <h3 class="argument-title">Que casi todos quieran algo no lo vuelve "objetivo".</h3>
+      <p class="argument-body">
+        Casi todos preferimos el dulce al amargo. Eso no significa que el dulce sea <em>objetivamente bueno</em> —significa que la mayoría tiene gustos parecidos—. Lo mismo con la salud: que la mayoría la quiera no la convierte en un mandato universal. <strong>Sigue siendo una preferencia, aunque sea muy popular.</strong>
+      </p>
+    </div>
+
+    <div class="argument green-accent">
+      <div class="argument-number">02</div>
+      <h3 class="argument-title">¿Salud según quién?</h3>
+      <p class="argument-body">
+        Para uno, salud es ir al médico, hacerse chequeos y tomar pastillas. Para otro, salud es no acercarse a un hospital ni de chiste y curarse con remedios naturales. Un deportista extremo cree que escalar montañas peligrosas es vida saludable; su mamá cree que está loco. Cuando el político dice <em>"voy a garantizar la salud"</em>, <strong>está eligiendo una de esas definiciones —la suya— y obligando a todo el mundo a aceptarla</strong>. La palabra suena neutral. La política no lo es.
+      </p>
+    </div>
+
+    <div class="argument green-accent">
+      <div class="argument-number">03</div>
+      <h3 class="argument-title">Todos queremos salud, sí. Pero no a cualquier precio.</h3>
+      <p class="argument-body">
+        El motociclista sabe que la moto es más peligrosa que el carro. La elige igual. ¿Está enfermo de la cabeza? No. <strong>Prefiere la libertad sobre la seguridad.</strong> El que escala el Everest pone su vida en riesgo. El emprendedor sacrifica años de sueño por su empresa. El bombero entra al fuego. Todos podrían vivir más sanos quedándose quietos en la casa —y eligen no hacerlo—. Cuando el Estado "le garantiza salud" obligándolo a comprar seguro o a jubilarse a tal edad, <em>no respeta lo que usted quiere: impone lo que el burócrata cree que usted debería querer</em>.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Mini-golpe final de la segunda objeción -->
+  <div class="thesis green" style="margin-top: -16px;">
+    <div class="thesis-label">El golpe final</div>
+    <div class="thesis-body">
+      La palabra "salud" suena clarita, pero apenas la aterriza, se desbarata. <strong>¿Vacunas obligatorias o no? ¿Marihuana legal o ilegal? ¿Eutanasia o no? ¿Cirugía estética cubierta o no?</strong> En todas esas preguntas hay gente que dice "eso es salud" y gente que dice "eso es lo contrario de salud" —y las dos son sinceras—.
+      <br><br>
+      Cuando alguien le diga <em>"la salud es objetiva"</em>, hágale tres preguntas: <strong>¿salud según quién? ¿a qué precio? ¿impuesta cómo?</strong> A la tercera, ya nadie está hablando de algo objetivo.
+    </div>
+  </div>
+
   <div class="synthesis">
     <div class="synthesis-inner">
       <div class="synthesis-label">El cierre</div>
       <p class="synthesis-text">
-        Confunden <strong>condiciones para actuar</strong> con <strong>libertad para actuar</strong>, y usan esa confusión para justificar lo único que la libertad prohíbe: usar a unos hombres como medios para los fines de otros. <em>Los principios que solo aplican en condiciones cómodas no son principios; son preferencias estéticas.</em>
+        Confunden <strong>condiciones para actuar</strong> —los medios materiales— con <strong>libertad para actuar</strong> —que nadie lo coaccione—, y usan esa confusión para justificar lo único que la libertad prohíbe: usar a unos hombres como medios para los fines de otros. <em>Los principios que solo aplican en condiciones cómodas no son principios; son preferencias estéticas.</em>
       </p>
+    </div>
+  </div>
+
+  <!-- GLOSARIO FINAL: FICHA DE REPASO -->
+  <div class="glossary final">
+    <div class="glossary-header">Ficha de repaso</div>
+    <span class="glossary-subtitle">para recuperar antes de una discusión</span>
+    <div class="glossary-row">
+      <div class="glossary-term term-orange">Libertad negativa</div>
+      <div class="glossary-def">Que nadie lo coaccione. La que defendemos.</div>
+    </div>
+    <div class="glossary-row">
+      <div class="glossary-term term-red">Libertad positiva</div>
+      <div class="glossary-def">Tener medios materiales. La que cuestionamos.</div>
+    </div>
+    <div class="glossary-row">
+      <div class="glossary-term term-red">Condiciones para actuar</div>
+      <div class="glossary-def">Los medios materiales (comida, salud, dinero).</div>
+    </div>
+    <div class="glossary-row">
+      <div class="glossary-term term-orange">Libertad para actuar</div>
+      <div class="glossary-def">Que nadie lo coaccione.</div>
+    </div>
+    <div class="glossary-row">
+      <div class="glossary-term">Coacción</div>
+      <div class="glossary-def">Obligar bajo amenaza de fuerza.</div>
+    </div>
+    <div class="glossary-row">
+      <div class="glossary-term">El truco del materialista</div>
+      <div class="glossary-def">Llamar "libertad" a los medios materiales, y desde ahí justificar coaccionar a otros para garantizarlos.</div>
+    </div>
+    <div class="glossary-row">
+      <div class="glossary-term">Las tres preguntas</div>
+      <div class="glossary-def">¿Según quién? ¿A qué precio? ¿Impuesta cómo? — Disuelven cualquier "objetivo vital objetivo".</div>
     </div>
   </div>
 
