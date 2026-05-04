@@ -100,26 +100,28 @@ h1 em {
   margin: 56px 0 48px;
 }
 
-/* ============ DEFINITIONS BLOCK ============ */
+/* ============ DEFINITIONS — CONFRONTATION ============ */
 .definitions {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-bottom: 64px;
+  grid-template-columns: 1fr 70px 1fr;
+  gap: 0;
+  align-items: stretch;
+  margin: 24px 0 64px 0;
 }
 
 .definition {
-  border-top: 2px solid var(--rule);
-  padding: 20px 24px 24px;
-  position: relative;
+  padding: 32px 28px;
+  border-radius: 4px;
 }
 
 .definition.positive {
-  border-top-color: var(--orange);
+  background: rgba(255, 140, 26, 0.05);
+  border: 1px solid rgba(255, 140, 26, 0.4);
 }
 
 .definition.negative-claim {
-  border-top-color: var(--red);
+  background: rgba(217, 76, 61, 0.05);
+  border: 1px solid rgba(217, 76, 61, 0.4);
 }
 
 .definition-eyebrow {
@@ -127,36 +129,75 @@ h1 em {
   font-size: 10px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  margin-bottom: 4px;
   font-weight: 500;
+  margin-bottom: 6px;
 }
 
-.definition.positive .definition-eyebrow {
-  color: var(--orange);
-}
-
-.definition.negative-claim .definition-eyebrow {
-  color: var(--red);
-}
+.definition.positive .definition-eyebrow { color: var(--orange); }
+.definition.negative-claim .definition-eyebrow { color: var(--red); }
 
 .definition-tag {
   font-family: 'Fraunces', serif;
   font-size: 12px;
   font-style: italic;
-  color: var(--ink-mute);
-  margin-bottom: 14px;
+  margin-bottom: 20px;
   display: block;
+  opacity: 0.85;
 }
+
+.definition.positive .definition-tag { color: var(--orange); }
+.definition.negative-claim .definition-tag { color: var(--red); }
+
+.definition-headline {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  line-height: 1.45;
+  color: var(--ink);
+  margin: 0;
+  font-weight: 400;
+}
+
+.definition.positive .definition-headline strong { color: var(--orange); font-weight: 500; }
+.definition.negative-claim .definition-headline strong { color: var(--red); font-weight: 500; }
 
 .definition-text {
-  color: var(--ink-soft);
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.65;
+  color: var(--ink-soft);
+  margin: 14px 0 0 0;
 }
 
-.definition-text strong {
-  color: var(--ink);
+.definition-asymmetry {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(232, 228, 220, 0.12);
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+
+.definition.positive .definition-asymmetry strong {
+  color: var(--orange);
   font-weight: 500;
+}
+
+.definition.negative-claim .definition-asymmetry strong {
+  color: var(--red);
+  font-weight: 500;
+}
+
+.definitions-vs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.definitions-vs span {
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  font-style: italic;
+  color: #5a5751;
+  line-height: 1;
 }
 
 @media (max-width: 640px) {
@@ -166,7 +207,13 @@ h1 em {
     margin-bottom: 48px;
   }
   .definition {
-    padding: 16px 20px 20px;
+    padding: 24px 22px;
+  }
+  .definitions-vs {
+    padding: 4px 0;
+  }
+  .definitions-vs span {
+    font-size: 24px;
   }
 }
 
@@ -254,7 +301,7 @@ h1 em {
 /* ============ THESIS BOX ============ */
 .thesis {
   background: var(--bg-card);
-  border-left: 3px solid var(--orange);
+  border-left: 3px solid var(--red);
   padding: 36px 40px;
   margin-bottom: 64px;
   position: relative;
@@ -268,20 +315,20 @@ h1 em {
   font-family: 'Fraunces', serif;
   font-size: 96px;
   line-height: 1;
-  color: var(--orange);
+  color: var(--red);
   opacity: 0.4;
 }
 
 .thesis.green {
-  border-left-color: var(--green);
+  border-left-color: var(--orange);
 }
 
 .thesis.green::before {
-  color: var(--green);
+  color: var(--orange);
 }
 
 .thesis.green .thesis-label {
-  color: var(--green);
+  color: var(--orange);
 }
 
 .thesis-label {
@@ -289,7 +336,7 @@ h1 em {
   font-size: 10px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--orange);
+  color: var(--red);
   margin-bottom: 16px;
 }
 
@@ -457,6 +504,432 @@ h1 em {
   color: var(--orange);
   font-style: italic;
   font-weight: 500;
+}
+
+/* ============ HIDDEN BILL (Card 04) ============ */
+.bill-section {
+  border-top: 1px solid var(--rule);
+  padding-top: 28px;
+  margin-top: 28px;
+}
+
+.bill-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 6px;
+}
+
+.bill-subtitle {
+  font-family: 'Fraunces', serif;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--ink-mute);
+  margin: 0 0 28px 0;
+}
+
+.bill-promise {
+  background: rgba(217, 76, 61, 0.04);
+  border: 1px solid rgba(217, 76, 61, 0.3);
+  padding: 22px 26px;
+  border-radius: 4px;
+  margin-bottom: 18px;
+}
+
+.bill-promise-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.bill-promise-text {
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  line-height: 1.3;
+  color: var(--ink);
+  margin: 0;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.bill-arrow {
+  text-align: center;
+  padding: 6px 0;
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: #5a5751;
+}
+
+.bill-table {
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.bill-table-header {
+  background: rgba(255, 140, 26, 0.06);
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.bill-table-header-left {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 500;
+}
+
+.bill-table-header-right {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+.bill-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--rule);
+  align-items: baseline;
+}
+
+.bill-row:last-child {
+  border-bottom: none;
+}
+
+.bill-row-victim {
+  font-family: 'Fraunces', serif;
+  font-size: 15px;
+  color: var(--ink);
+  margin: 0 0 4px 0;
+}
+
+.bill-row-cost {
+  font-size: 12px;
+  color: var(--ink-mute);
+  margin: 0;
+  font-style: italic;
+}
+
+.bill-row-threat {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--red);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-align: right;
+}
+
+.bill-footnote {
+  font-size: 11px;
+  color: #5a5751;
+  margin: 0 0 24px 0;
+  font-style: italic;
+}
+
+.bill-conclusion {
+  background: rgba(255, 140, 26, 0.04);
+  border: 1px solid rgba(255, 140, 26, 0.25);
+  border-radius: 4px;
+  padding: 22px 26px;
+}
+
+.bill-conclusion-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 10px;
+}
+
+.bill-conclusion-text {
+  font-family: 'Fraunces', serif;
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 0;
+}
+
+.bill-conclusion-text em {
+  color: var(--orange);
+  font-weight: 500;
+  font-style: italic;
+}
+
+.bill-conclusion-text strong {
+  color: var(--red);
+  font-weight: 500;
+  font-style: normal;
+}
+
+@media (max-width: 640px) {
+  .bill-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .bill-row-threat {
+    text-align: left;
+  }
+  .bill-promise-text {
+    font-size: 20px;
+  }
+}
+.hierarchy-section {
+  border-top: 1px solid var(--rule);
+  padding-top: 28px;
+  margin-top: 28px;
+}
+
+.hierarchy-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 6px;
+}
+
+.hierarchy-subtitle {
+  font-family: 'Fraunces', serif;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--ink-mute);
+  margin: 0 0 28px 0;
+}
+
+.hierarchy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.hierarchy-card {
+  border: 1px solid var(--rule);
+  padding: 18px 16px;
+  border-radius: 4px;
+}
+
+.hierarchy-card-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.hierarchy-card-desc {
+  font-family: 'Fraunces', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--ink-mute);
+  margin-bottom: 16px;
+}
+
+.hierarchy-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.hierarchy-row:last-child {
+  border-bottom: none;
+}
+
+.hierarchy-rank {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--orange);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.hierarchy-rank.warn {
+  color: var(--red);
+}
+
+.hierarchy-item {
+  font-size: 13px;
+  color: var(--ink);
+}
+
+.hierarchy-item.struck {
+  color: var(--ink-soft);
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.hierarchy-item-tag {
+  color: var(--red);
+  font-style: italic;
+  font-size: 11px;
+}
+
+.hierarchy-coda-question {
+  font-family: 'Fraunces', serif;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--ink);
+  margin: 24px 0 4px 0;
+  text-align: center;
+}
+
+.hierarchy-coda-answer {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 0;
+  text-align: center;
+}
+
+.hierarchy-coda-answer strong {
+  color: var(--orange);
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .hierarchy-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+.parallel-section {
+  border-top: 1px solid var(--rule);
+  padding-top: 28px;
+  margin-top: 28px;
+}
+
+.parallel-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 6px;
+}
+
+.parallel-subtitle {
+  font-family: 'Fraunces', serif;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--ink-mute);
+  margin: 0 0 24px 0;
+}
+
+.parallel-table {
+  display: grid;
+  grid-template-columns: 110px 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.parallel-row-label {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.parallel-row-label-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #5a5751;
+  line-height: 1.4;
+}
+
+.parallel-cell {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+}
+
+.parallel-cell-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.parallel-cell-text {
+  font-family: 'Fraunces', serif;
+  font-size: 15px;
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.parallel-cell-text strong {
+  font-weight: 500;
+}
+
+.parallel-row-label.last {
+  padding: 16px 0;
+  border-bottom: none;
+}
+
+.parallel-cell.last {
+  padding: 16px 18px;
+  border-bottom: none;
+}
+
+.parallel-verdict {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  font-weight: 500;
+}
+
+.parallel-verdict.yes {
+  color: var(--red);
+  border: 1px solid var(--red);
+}
+
+.parallel-verdict.no {
+  color: var(--orange);
+  border: 1px solid var(--orange);
+}
+
+.parallel-coda-question {
+  font-family: 'Fraunces', serif;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--ink);
+  margin: 28px 0 4px 0;
+  text-align: center;
+}
+
+.parallel-coda-answer {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 0;
+  text-align: center;
 }
 
 /* ============ CARD 01 SPECIAL COMPONENTS ============ */
@@ -704,6 +1177,21 @@ h1 em {
   .timeline-when-number {
     font-size: 18px;
   }
+  .parallel-table {
+    grid-template-columns: 1fr;
+  }
+  .parallel-row-label {
+    padding: 12px 0 6px 0;
+    border-bottom: none;
+  }
+  .parallel-cell {
+    padding: 8px 0 12px 0;
+    border-left: none;
+    border-bottom: 1px solid var(--rule);
+  }
+  .parallel-cell.last {
+    padding: 8px 0 12px 0;
+  }
 }
 
 .argument-body em {
@@ -925,47 +1413,22 @@ footer .praxis-mark {
 
   <div class="orange-rule"></div>
 
-  <!-- GLOSARIO INICIAL -->
-  <div class="glossary">
-    <div class="glossary-header">Vocabulario clave</div>
-    <span class="glossary-subtitle">los términos antes de la pelea</span>
-    <div class="glossary-row">
-      <div class="glossary-term term-orange">Libertad negativa</div>
-      <div class="glossary-def">Que nadie lo coaccione.</div>
-    </div>
-    <div class="glossary-row">
-      <div class="glossary-term term-red">Libertad positiva</div>
-      <div class="glossary-def">Tener medios materiales (comida, salud, dinero, educación).</div>
-    </div>
-    <div class="glossary-row">
-      <div class="glossary-term term-red">Condiciones para actuar</div>
-      <div class="glossary-def">Sinónimo de libertad positiva. Los medios materiales.</div>
-    </div>
-    <div class="glossary-row">
-      <div class="glossary-term term-orange">Libertad para actuar</div>
-      <div class="glossary-def">Sinónimo de libertad negativa. Que nadie lo coaccione.</div>
-    </div>
-    <div class="glossary-row">
-      <div class="glossary-term">Coacción</div>
-      <div class="glossary-def">Obligar a alguien a hacer o no hacer algo bajo amenaza de fuerza —cárcel, multa, violencia—.</div>
-    </div>
-  </div>
-
-  <!-- DEFINICIONES PREVIAS -->
+  <!-- DEFINICIONES — CONFRONTACIÓN -->
   <div class="definitions">
     <div class="definition positive">
-      <div class="definition-eyebrow">Libertad Negativa</div>
+      <div class="definition-eyebrow">Libertad negativa</div>
       <span class="definition-tag">la que defendemos</span>
-      <p class="definition-text">
-        Estar libre de la <strong>coacción de otros</strong>. Que nadie lo obligue ni le impida actuar mediante fuerza o amenaza.
-      </p>
+      <p class="definition-headline">Que nadie lo <strong>coaccione</strong>.</p>
+      <p class="definition-text">Que ningún humano use la fuerza o la amenaza para impedirle actuar.</p>
+      <p class="definition-asymmetry"><strong>No le quita nada a nadie.</strong> Solo exige que lo dejen en paz.</p>
     </div>
+    <div class="definitions-vs"><span>vs</span></div>
     <div class="definition negative-claim">
-      <div class="definition-eyebrow">Libertad Positiva</div>
+      <div class="definition-eyebrow">Libertad positiva</div>
       <span class="definition-tag">la que cuestionamos</span>
-      <p class="definition-text">
-        Tener los <strong>medios materiales</strong> para hacer lo que uno quiere. Que existan las condiciones —comida, salud, educación— que permitan ejercer la libertad.
-      </p>
+      <p class="definition-headline">Tener <strong>medios materiales</strong>.</p>
+      <p class="definition-text">Comida, salud, dinero, educación —las condiciones para actuar—.</p>
+      <p class="definition-asymmetry"><strong>Exige esclavizar parcialmente a otros.</strong> Alguien tiene que ser obligado a producir lo que usted "necesita".</p>
     </div>
   </div>
 
@@ -973,7 +1436,7 @@ footer .praxis-mark {
     <div class="thesis-label">Tesis a refutar</div>
     <div class="thesis-title">"La libertad negativa no es verdadera libertad."</div>
     <div class="thesis-body">
-      Ser libre no es solo que nadie lo coaccione —dicen— sino <strong>tener los medios materiales para actuar</strong>. Si usted no tiene comida, salud o educación, <strong>no se puede ser libre sin esos medios materiales</strong>. Por eso el Estado debe garantizar esos "objetivos vitales", aunque para ello tenga que coaccionar mediante impuestos, redistribución y regulación.
+      Ser libre no es solo que nadie lo coaccione —dicen— sino <span class="red">tener los medios materiales para actuar</span>. Si usted no tiene comida, salud o educación, <span class="red">no se puede ser libre sin esos medios materiales</span>. Por eso el Estado debe garantizar esos "objetivos vitales", aunque para ello tenga que coaccionar mediante impuestos, redistribución y regulación.
     </div>
   </div>
 
@@ -1004,11 +1467,11 @@ footer .praxis-mark {
         <div class="proof-eyebrow">La prueba histórica</div>
 
         <p class="proof-question">
-          ¿El hombre primitivo era <em>menos libre</em> al morir por no tener cómo calentarse, cómo curar una infección? <strong style="color: var(--orange); font-style: normal;">No.</strong>
+          Si la falta de <em>medios materiales</em> nos hiciera <strong style="color: var(--orange); font-style: normal; font-weight: 500;">no libres</strong>, entonces nuestros ancestros vivieron sin libertad.
         </p>
 
         <p class="proof-answer-intro">
-          Le faltaban <strong>medios materiales —no libertad—</strong>. Se moría de frío por no tener fuego. Se moría de infecciones por no tener antibióticos.
+          <strong>Tenían que cazar para comer</strong>, y la cacería podía matarlos —de un golpe del animal, de una caída, del hambre si volvían sin nada—. Pero nadie los oprimía: <strong>buscaban su propia subsistencia</strong>, libres de coacción humana, esclavos solo de la naturaleza.
         </p>
 
         <div class="timeline">
@@ -1074,6 +1537,50 @@ footer .praxis-mark {
       <p class="argument-body">
         Que yo necesite un riñón <strong>no me autoriza a tomar el suyo</strong>. La necesidad describe mi situación; no crea, por sí sola, una obligación coactiva sobre terceros.
       </p>
+
+      <div class="parallel-section">
+        <div class="parallel-eyebrow">El paralelo lógico</div>
+        <p class="parallel-subtitle">Misma estructura · distinta temperatura emocional</p>
+
+        <div class="parallel-table">
+
+          <div class="parallel-row-label">
+            <div class="parallel-row-label-text">Necesidad</div>
+          </div>
+          <div class="parallel-cell">
+            <div class="parallel-cell-eyebrow">Caso A · Hambre</div>
+            <p class="parallel-cell-text">A necesita <strong>comida</strong> para no morir.</p>
+          </div>
+          <div class="parallel-cell">
+            <div class="parallel-cell-eyebrow">Caso B · Riñón</div>
+            <p class="parallel-cell-text">A necesita <strong>un riñón</strong> para no morir.</p>
+          </div>
+
+          <div class="parallel-row-label">
+            <div class="parallel-row-label-text">Recurso<br>de un tercero</div>
+          </div>
+          <div class="parallel-cell">
+            <p class="parallel-cell-text">B tiene <strong>comida</strong> que produjo con su trabajo.</p>
+          </div>
+          <div class="parallel-cell">
+            <p class="parallel-cell-text">B tiene <strong>su riñón</strong>, parte de su cuerpo.</p>
+          </div>
+
+          <div class="parallel-row-label last">
+            <div class="parallel-row-label-text">¿Justifica<br>coacción?</div>
+          </div>
+          <div class="parallel-cell last">
+            <span class="parallel-verdict yes">Dicen que sí</span>
+          </div>
+          <div class="parallel-cell last">
+            <span class="parallel-verdict no">Nadie diría que sí</span>
+          </div>
+
+        </div>
+
+        <p class="parallel-coda-question">¿Por qué la lógica cambia?</p>
+        <p class="parallel-coda-answer">No cambia. Solo sube la temperatura emocional.</p>
+      </div>
     </div>
 
     <div class="argument">
@@ -1082,6 +1589,93 @@ footer .praxis-mark {
       <p class="argument-body">
         Cada quien jerarquiza sus fines distinto. Cuando un político dice "objetivos vitales", está diciendo <em>los fines que yo creo que usted debería tener</em>. Es <strong>paternalismo disfrazado de ontología</strong>.
       </p>
+
+      <div class="hierarchy-section">
+        <div class="hierarchy-eyebrow">El experimento</div>
+        <p class="hierarchy-subtitle">Tres personas. Los mismos cinco fines. Tres jerarquías distintas.</p>
+
+        <div class="hierarchy-grid">
+
+          <div class="hierarchy-card">
+            <div class="hierarchy-card-name">Persona A</div>
+            <div class="hierarchy-card-desc">empresario · 45 años</div>
+            <div class="hierarchy-row">
+              <span class="hierarchy-rank">1.</span>
+              <span class="hierarchy-item">Trabajo / propósito</span>
+            </div>
+            <div class="hierarchy-row">
+              <span class="hierarchy-rank">2.</span>
+              <span class="hierarchy-item">Familia</span>
+            </div>
+            <div class="hierarchy-row">
+              <span class="hierarchy-rank">3.</span>
+              <span class="hierarchy-item">Salud</span>
+            </div>
+            <div class="hierarchy-row">
+              <span class="hierarchy-rank">4.</span>
+              <span class="hierarchy-item">Educación</span>
+            </div>
+            <div class="hierarchy-row">
+              <span class="hierarchy-rank">5.</span>
+              <span class="hierarchy-item">Ocio</span>
+            </div>
+          </div>
+
+          <div class="hierarchy-card">
+            <div class="hierarchy-card-name">Persona B</div>
+            <div class="hierarchy-card-desc">monje · 60 años</div>
+            <div class="hierarchy-row">
+              <span class="hierarchy-rank">1.</span>
+              <span class="hierarchy-item">Espiritualidad</span>
+            </div>
+            <div class="hierarchy-row">
+              <span class="hierarchy-rank">2.</span>
+              <span class="hierarchy-item">Comunidad</span>
+            </div>
+            <div class="hierarchy-row">
+              <span class="hierarchy-rank">3.</span>
+              <span class="hierarchy-item">Conocimiento</span>
+            </div>
+            <div class="hierarchy-row">
+              <span class="hierarchy-rank">4.</span>
+              <span class="hierarchy-item">Salud</span>
+            </div>
+            <div class="hierarchy-row">
+              <span class="hierarchy-rank">5.</span>
+              <span class="hierarchy-item struck">Ocio</span>
+            </div>
+          </div>
+
+          <div class="hierarchy-card">
+            <div class="hierarchy-card-name">Persona C</div>
+            <div class="hierarchy-card-desc">alpinista · 32 años</div>
+            <div class="hierarchy-row">
+              <span class="hierarchy-rank">1.</span>
+              <span class="hierarchy-item">Aventura / riesgo</span>
+            </div>
+            <div class="hierarchy-row">
+              <span class="hierarchy-rank">2.</span>
+              <span class="hierarchy-item">Libertad</span>
+            </div>
+            <div class="hierarchy-row">
+              <span class="hierarchy-rank">3.</span>
+              <span class="hierarchy-item">Ocio</span>
+            </div>
+            <div class="hierarchy-row">
+              <span class="hierarchy-rank">4.</span>
+              <span class="hierarchy-item">Familia</span>
+            </div>
+            <div class="hierarchy-row">
+              <span class="hierarchy-rank warn">5.</span>
+              <span class="hierarchy-item">Salud <span class="hierarchy-item-tag">— acepta perderla</span></span>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="hierarchy-coda-question">¿Cuál es la jerarquía "correcta"?</p>
+        <p class="hierarchy-coda-answer">Ninguna. Cada uno define qué es vital para él. <strong>No hay un orden universal.</strong></p>
+      </div>
     </div>
 
     <div class="argument">
@@ -1090,233 +1684,66 @@ footer .praxis-mark {
       <p class="argument-body">
         Como los recursos son escasos, asegurar la "libertad real" de A exige obligar a B a producir o pagar. La libertad positiva <strong>no amplía la libertad: la traslada por la fuerza</strong>.
       </p>
+
+      <div class="bill-section">
+        <div class="bill-eyebrow">La factura oculta</div>
+        <p class="bill-subtitle">Toda promesa política tiene a alguien pagándola.</p>
+
+        <div class="bill-promise">
+          <div class="bill-promise-label">Lo que prometen</div>
+          <p class="bill-promise-text">"Vivienda gratis para todos."</p>
+        </div>
+
+        <div class="bill-arrow">↓</div>
+
+        <div class="bill-table">
+          <div class="bill-table-header">
+            <div class="bill-table-header-left">Factura oculta</div>
+            <div class="bill-table-header-right">¿Quién paga?</div>
+          </div>
+
+          <div class="bill-row">
+            <div>
+              <p class="bill-row-victim">El albañil que la construye</p>
+              <p class="bill-row-cost">su trabajo, sus horas, su tiempo familiar</p>
+            </div>
+            <div class="bill-row-threat">si rechaza →<br>va a la cárcel*</div>
+          </div>
+
+          <div class="bill-row">
+            <div>
+              <p class="bill-row-victim">El dueño del terreno expropiado</p>
+              <p class="bill-row-cost">su propiedad, sus planes, su patrimonio</p>
+            </div>
+            <div class="bill-row-threat">si resiste →<br>fuerza pública</div>
+          </div>
+
+          <div class="bill-row">
+            <div>
+              <p class="bill-row-victim">El contribuyente que la paga</p>
+              <p class="bill-row-cost">su salario, sus ahorros, sus sueños propios</p>
+            </div>
+            <div class="bill-row-threat">si no paga →<br>embargo, cárcel</div>
+          </div>
+
+          <div class="bill-row">
+            <div>
+              <p class="bill-row-victim">El que ahora no puede comprarla</p>
+              <p class="bill-row-cost">precios distorsionados, oferta destruida</p>
+            </div>
+            <div class="bill-row-threat">queda sin opción</div>
+          </div>
+        </div>
+
+        <p class="bill-footnote">* La amenaza de fuerza está siempre al final del trámite, aunque rara vez se vea. Por eso se llama coacción.</p>
+
+        <div class="bill-conclusion">
+          <div class="bill-conclusion-label">El punto</div>
+          <p class="bill-conclusion-text">No existe la <em>"vivienda gratis"</em>. Existe vivienda <strong>cobrada por la fuerza</strong> a alguien que no eligió pagarla.</p>
+        </div>
+      </div>
     </div>
 
-  </div>
-
-  <div class="counterattack-divider"><span>El contraataque</span></div>
-
-  <div class="thesis">
-    <div class="thesis-label">La objeción del hambriento</div>
-    <div class="thesis-title">"Dígale eso al que se está muriendo de hambre."</div>
-    <div class="thesis-body">
-      Muy bonita su teoría —dicen— pero <strong>dígale al que se está muriendo de hambre</strong> que no tiene derecho a los medios materiales para sobrevivir porque eso violaría la libertad negativa de otro. Su libertad es un lujo de gente con la nevera llena.
-    </div>
-  </div>
-
-  <div class="diagram-frame">
-<svg viewBox="0 0 760 480" xmlns="http://www.w3.org/2000/svg" role="img" style="width:100%;height:auto;display:block;">
-<title>Paralelo lógico: el hambriento y el riñón</title>
-<desc>Dos casos con la misma estructura: necesidad de A, recurso de B, y la conclusión coactiva.</desc>
-<defs>
-<style>
-.lbl-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; fill: #FF8C1A; font-weight: 500; }
-.lbl-title { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 600; fill: #e8e4dc; }
-.lbl-body { font-family: 'Inter', sans-serif; font-size: 13px; fill: #b8b3a8; font-weight: 400; }
-.lbl-step { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; fill: #7a7670; font-weight: 500; }
-.lbl-emph { font-family: 'Fraunces', serif; font-size: 14px; font-style: italic; fill: #e8e4dc; font-weight: 400; }
-.lbl-verdict-yes { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; fill: #FF8C1A; font-weight: 500; }
-.lbl-verdict-no { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; fill: #FF8C1A; font-weight: 500; }
-.lbl-divider { font-family: 'Fraunces', serif; font-size: 11px; font-style: italic; fill: #7a7670; }
-</style>
-<marker id="arr-mute" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-<path d="M2 1L8 5L2 9" fill="none" stroke="#5a5751" stroke-width="1.4" stroke-linecap="round"/>
-</marker>
-</defs>
-<text x="380" y="32" text-anchor="middle" class="lbl-eyebrow">Misma estructura · Distinta temperatura emocional</text>
-<line x1="320" y1="48" x2="440" y2="48" stroke="#FF8C1A" stroke-width="1"/>
-<text x="190" y="92" text-anchor="middle" class="lbl-title">Caso A · Hambre</text>
-<text x="570" y="92" text-anchor="middle" class="lbl-title">Caso B · Riñón</text>
-<line x1="380" y1="78" x2="380" y2="430" stroke="#3a3a37" stroke-width="0.5" stroke-dasharray="3 4"/>
-<text x="380" y="260" text-anchor="middle" class="lbl-divider" transform="rotate(-90 380 260)">paralelo lógico</text>
-<text x="60" y="135" class="lbl-step">01 · Necesidad</text>
-<text x="440" y="135" class="lbl-step">01 · Necesidad</text>
-<g transform="translate(140, 150)">
-<circle cx="20" cy="14" r="9" fill="none" stroke="#b8b3a8" stroke-width="1.2"/>
-<path d="M 20 23 L 20 50 M 8 38 L 32 38 M 12 60 L 20 50 L 28 60" fill="none" stroke="#b8b3a8" stroke-width="1.2" stroke-linecap="round"/>
-<circle cx="20" cy="32" r="5" fill="none" stroke="#FF8C1A" stroke-width="0.8" stroke-dasharray="1.5 1.5"/>
-</g>
-<text x="190" y="235" text-anchor="middle" class="lbl-emph">A necesita comida</text>
-<text x="190" y="252" text-anchor="middle" class="lbl-body">para no morir</text>
-<g transform="translate(520, 150)">
-<circle cx="20" cy="14" r="9" fill="none" stroke="#b8b3a8" stroke-width="1.2"/>
-<path d="M 20 23 L 20 50 M 8 38 L 32 38 M 12 60 L 20 50 L 28 60" fill="none" stroke="#b8b3a8" stroke-width="1.2" stroke-linecap="round"/>
-<path d="M 33 30 Q 39 28 39 34 Q 39 40 33 38 Q 30 36 31 33 Z" fill="none" stroke="#FF8C1A" stroke-width="0.8"/>
-<line x1="31" y1="30" x2="39" y2="38" stroke="#FF8C1A" stroke-width="0.8"/>
-</g>
-<text x="570" y="235" text-anchor="middle" class="lbl-emph">A necesita un riñón</text>
-<text x="570" y="252" text-anchor="middle" class="lbl-body">para no morir</text>
-<text x="60" y="285" class="lbl-step">02 · Recurso de un tercero</text>
-<text x="440" y="285" class="lbl-step">02 · Recurso de un tercero</text>
-<g transform="translate(140, 300)">
-<circle cx="20" cy="14" r="9" fill="none" stroke="#FF8C1A" stroke-width="1.2"/>
-<path d="M 20 23 L 20 50 M 8 38 L 32 38 M 12 60 L 20 50 L 28 60" fill="none" stroke="#FF8C1A" stroke-width="1.2" stroke-linecap="round"/>
-<rect x="34" y="33" width="12" height="8" rx="3" fill="none" stroke="#FF8C1A" stroke-width="1"/>
-<line x1="36" y1="36" x2="44" y2="36" stroke="#FF8C1A" stroke-width="0.6"/>
-</g>
-<text x="190" y="380" text-anchor="middle" class="lbl-emph">B tiene comida</text>
-<text x="190" y="397" text-anchor="middle" class="lbl-body">producto de su trabajo</text>
-<g transform="translate(520, 300)">
-<circle cx="20" cy="14" r="9" fill="none" stroke="#FF8C1A" stroke-width="1.2"/>
-<path d="M 20 23 L 20 50 M 8 38 L 32 38 M 12 60 L 20 50 L 28 60" fill="none" stroke="#FF8C1A" stroke-width="1.2" stroke-linecap="round"/>
-<path d="M 33 30 Q 39 28 39 34 Q 39 40 33 38 Q 30 36 31 33 Z" fill="#FF8C1A" stroke="#FF8C1A" stroke-width="0.8" opacity="0.4"/>
-</g>
-<text x="570" y="380" text-anchor="middle" class="lbl-emph">B tiene su riñón</text>
-<text x="570" y="397" text-anchor="middle" class="lbl-body">parte de su cuerpo</text>
-<path d="M 190 265 L 190 295" stroke="#5a5751" stroke-width="1" fill="none" marker-end="url(#arr-mute)"/>
-<path d="M 570 265 L 570 295" stroke="#5a5751" stroke-width="1" fill="none" marker-end="url(#arr-mute)"/>
-<line x1="40" y1="425" x2="720" y2="425" stroke="#3a3a37" stroke-width="0.5"/>
-<text x="60" y="450" class="lbl-step">¿Justifica coacción?</text>
-<g transform="translate(140, 440)">
-<rect x="0" y="0" width="100" height="26" rx="2" fill="none" stroke="#FF8C1A" stroke-width="1"/>
-<text x="50" y="17" text-anchor="middle" class="lbl-verdict-yes">Dicen que sí</text>
-</g>
-<g transform="translate(520, 440)">
-<rect x="0" y="0" width="100" height="26" rx="2" fill="none" stroke="#FF8C1A" stroke-width="1"/>
-<text x="50" y="17" text-anchor="middle" class="lbl-verdict-no">Nadie diría que sí</text>
-</g>
-<text x="380" y="458" text-anchor="middle" class="lbl-emph">¿Por qué la lógica cambia?</text>
-<text x="380" y="473" text-anchor="middle" class="lbl-body">No cambia. Solo sube la temperatura emocional.</text>
-</svg>
-    <p class="diagram-caption">Fig. 01 · Estructura idéntica · Intuición invertida</p>
-  </div>
-
-  <div class="section-header">
-    <div class="section-eyebrow alt">La respuesta · I</div>
-    <h2 class="section-title">Cuatro movimientos para <em class="alt">desactivar el hambre</em></h2>
-  </div>
-
-  <div class="arguments">
-
-    <div class="argument green-accent">
-      <div class="argument-number">01</div>
-      <h3 class="argument-title">Aceptar el peso moral, rechazar el salto lógico.</h3>
-      <p class="argument-body">
-        Sí, es trágico que alguien pase hambre. <strong>No, esa tragedia no convierte mágicamente la coacción sobre terceros en justicia</strong>. Si necesitar no genera derecho coactivo cuando se trata de un riñón, tampoco lo genera cuando se trata de comida. La intensidad emocional del caso no es un argumento, es un <em>chantaje retórico</em>.
-      </p>
-    </div>
-
-    <div class="argument green-accent">
-      <div class="argument-number">02</div>
-      <h3 class="argument-title">Caridad y solidaridad no son coacción.</h3>
-      <p class="argument-body">
-        El austrismo no dice que el hambriento deba morirse. Dice que <strong>ayudarlo voluntariamente</strong> —familia, comunidad, iglesia, mutuales, filantropía, mercado— es moralmente distinto a <strong>obligar a punta de pistola</strong> a un tercero a hacerlo. Ambos resuelven el hambre; solo uno respeta la dignidad de todos. Confundir caridad con redistribución coactiva es <em>la trampa central</em>.
-      </p>
-    </div>
-
-    <div class="argument green-accent">
-      <div class="argument-number">03</div>
-      <h3 class="argument-title">El falso dilema: "o coacción estatal o muerte".</h3>
-      <p class="argument-body">
-        El argumento presenta dos opciones: el Estado redistribuye o el pobre muere. Es falso empíricamente. Las sociedades con mayor libertad económica son las que <strong>menos hambre histórica</strong> han producido. La pregunta correcta no es "¿coacción o hambre?" sino <em>"¿qué sistema produce más comida para más gente?"</em>. La respuesta histórica es inequívoca: mercados libres.
-      </p>
-    </div>
-
-    <div class="argument green-accent">
-      <div class="argument-number">04</div>
-      <h3 class="argument-title">La pregunta inversa que nunca se hacen.</h3>
-      <p class="argument-body">
-        Si el hambre justifica coaccionar a terceros, <strong>¿hasta dónde llega?</strong> ¿Puedo robarle a mi vecino si tengo hambre? ¿Puede un país invadir a otro si su pueblo pasa hambre? El principio "necesidad extrema → derecho coactivo" no tiene techo lógico —disuelve toda propiedad y toda paz—. Quien lo defiende no protege al hambriento; <em>construye la justificación universal</em> para que el más fuerte tome del más débil cuando declare "emergencia".
-      </p>
-    </div>
-
-  </div>
-
-  <!-- ============ SEGUNDO CONTRAATAQUE: LA SALUD ============ -->
-  <div class="counterattack-divider sub"><span>Segunda objeción</span></div>
-
-  <div class="thesis">
-    <div class="thesis-label">La objeción de la salud</div>
-    <div class="thesis-title">"No me venga con que es subjetivo. Todos queremos salud."</div>
-    <div class="thesis-body">
-      Concedido que los fines son distintos —dirán— pero <strong>hay medios materiales que todo el mundo necesita</strong>: salud, comida, techo, educación. Eso ya no es subjetivo, es <em>obvio</em>. Y si es obvio, el Estado tiene piso para garantizarlo.
-    </div>
-  </div>
-
-  <div class="section-header">
-    <div class="section-eyebrow alt">La respuesta · II</div>
-    <h2 class="section-title">Tres movimientos para <em class="alt">desactivar la salud</em></h2>
-  </div>
-
-  <div class="arguments">
-
-    <div class="argument green-accent">
-      <div class="argument-number">01</div>
-      <h3 class="argument-title">Que casi todos quieran algo no lo vuelve "objetivo".</h3>
-      <p class="argument-body">
-        Casi todos preferimos el dulce al amargo. Eso no significa que el dulce sea <em>objetivamente bueno</em> —significa que la mayoría tiene gustos parecidos—. Lo mismo con la salud: que la mayoría la quiera no la convierte en un mandato universal. <strong>Sigue siendo una preferencia, aunque sea muy popular.</strong>
-      </p>
-    </div>
-
-    <div class="argument green-accent">
-      <div class="argument-number">02</div>
-      <h3 class="argument-title">¿Salud según quién?</h3>
-      <p class="argument-body">
-        Para uno, salud es ir al médico, hacerse chequeos y tomar pastillas. Para otro, salud es no acercarse a un hospital ni de chiste y curarse con remedios naturales. Un deportista extremo cree que escalar montañas peligrosas es vida saludable; su mamá cree que está loco. Cuando el político dice <em>"voy a garantizar la salud"</em>, <strong>está eligiendo una de esas definiciones —la suya— y obligando a todo el mundo a aceptarla</strong>. La palabra suena neutral. La política no lo es.
-      </p>
-    </div>
-
-    <div class="argument green-accent">
-      <div class="argument-number">03</div>
-      <h3 class="argument-title">Todos queremos salud, sí. Pero no a cualquier precio.</h3>
-      <p class="argument-body">
-        El motociclista sabe que la moto es más peligrosa que el carro. La elige igual. ¿Está enfermo de la cabeza? No. <strong>Prefiere la libertad sobre la seguridad.</strong> El que escala el Everest pone su vida en riesgo. El emprendedor sacrifica años de sueño por su empresa. El bombero entra al fuego. Todos podrían vivir más sanos quedándose quietos en la casa —y eligen no hacerlo—. Cuando el Estado "le garantiza salud" obligándolo a comprar seguro o a jubilarse a tal edad, <em>no respeta lo que usted quiere: impone lo que el burócrata cree que usted debería querer</em>.
-      </p>
-    </div>
-
-  </div>
-
-  <!-- Mini-golpe final de la segunda objeción -->
-  <div class="thesis green" style="margin-top: -16px;">
-    <div class="thesis-label">El golpe final</div>
-    <div class="thesis-body">
-      La palabra "salud" suena clarita, pero apenas la aterriza, se desbarata. <strong>¿Vacunas obligatorias o no? ¿Marihuana legal o ilegal? ¿Eutanasia o no? ¿Cirugía estética cubierta o no?</strong> En todas esas preguntas hay gente que dice "eso es salud" y gente que dice "eso es lo contrario de salud" —y las dos son sinceras—.
-      <br><br>
-      Cuando alguien le diga <em>"la salud es objetiva"</em>, hágale tres preguntas: <strong>¿salud según quién? ¿a qué precio? ¿impuesta cómo?</strong> A la tercera, ya nadie está hablando de algo objetivo.
-    </div>
-  </div>
-
-  <div class="synthesis">
-    <div class="synthesis-inner">
-      <div class="synthesis-label">El cierre</div>
-      <p class="synthesis-text">
-        Confunden <strong>condiciones para actuar</strong> —los medios materiales— con <strong>libertad para actuar</strong> —que nadie lo coaccione—, y usan esa confusión para justificar lo único que la libertad prohíbe: usar a unos hombres como medios para los fines de otros. <em>Los principios que solo aplican en condiciones cómodas no son principios; son preferencias estéticas.</em>
-      </p>
-    </div>
-  </div>
-
-  <!-- GLOSARIO FINAL: FICHA DE REPASO -->
-  <div class="glossary final">
-    <div class="glossary-header">Ficha de repaso</div>
-    <span class="glossary-subtitle">para recuperar antes de una discusión</span>
-    <div class="glossary-row">
-      <div class="glossary-term term-orange">Libertad negativa</div>
-      <div class="glossary-def">Que nadie lo coaccione. La que defendemos.</div>
-    </div>
-    <div class="glossary-row">
-      <div class="glossary-term term-red">Libertad positiva</div>
-      <div class="glossary-def">Tener medios materiales. La que cuestionamos.</div>
-    </div>
-    <div class="glossary-row">
-      <div class="glossary-term term-red">Condiciones para actuar</div>
-      <div class="glossary-def">Los medios materiales (comida, salud, dinero).</div>
-    </div>
-    <div class="glossary-row">
-      <div class="glossary-term term-orange">Libertad para actuar</div>
-      <div class="glossary-def">Que nadie lo coaccione.</div>
-    </div>
-    <div class="glossary-row">
-      <div class="glossary-term">Coacción</div>
-      <div class="glossary-def">Obligar bajo amenaza de fuerza.</div>
-    </div>
-    <div class="glossary-row">
-      <div class="glossary-term">El truco del materialista</div>
-      <div class="glossary-def">Llamar "libertad" a los medios materiales, y desde ahí justificar coaccionar a otros para garantizarlos.</div>
-    </div>
-    <div class="glossary-row">
-      <div class="glossary-term">Las tres preguntas</div>
-      <div class="glossary-def">¿Según quién? ¿A qué precio? ¿Impuesta cómo? — Disuelven cualquier "objetivo vital objetivo".</div>
-    </div>
   </div>
 
   <footer>
